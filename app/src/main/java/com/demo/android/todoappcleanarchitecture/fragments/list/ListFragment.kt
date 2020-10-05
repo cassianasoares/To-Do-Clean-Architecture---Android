@@ -7,15 +7,14 @@ import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
 import com.demo.android.todoappcleanarchitecture.R
 import com.demo.android.todoappcleanarchitecture.data.models.ToDoData
 import com.demo.android.todoappcleanarchitecture.data.viewmodel.ToDoViewModel
 import com.demo.android.todoappcleanarchitecture.databinding.FragmentListBinding
 import com.demo.android.todoappcleanarchitecture.fragments.SharedViewModel
 import com.demo.android.todoappcleanarchitecture.fragments.list.adapter.ListAdapter
+import com.demo.android.todoappcleanarchitecture.utils.hideKeyboard
 import com.google.android.material.snackbar.Snackbar
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
@@ -50,13 +49,16 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         //Set Menu
         setHasOptionsMenu(true)
 
+        //Hide Soft Keyboard
+        hideKeyboard(requireActivity())
+
         return binding.root
     }
 
     private fun setupRecyclerview() {
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.itemAnimator = SlideInUpAnimator().apply {
             addDuration = 300
         }
@@ -73,21 +75,20 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
                 mToDoViewModel.deleteItem(deletedItem)
                 adapter.notifyItemRemoved(viewHolder.adapterPosition)
                 //Restore Deleted Item
-                restoreDeletedData(viewHolder.itemView, deletedItem, viewHolder.adapterPosition)
+                restoreDeletedData(viewHolder.itemView, deletedItem)
             }
         }
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
-    fun restoreDeletedData(view: View, deletedItem: ToDoData, position: Int){
+    fun restoreDeletedData(view: View, deletedItem: ToDoData){
         val snackBar = Snackbar.make(
             view, "Deleted '${deletedItem.title}",
             Snackbar.LENGTH_LONG
         )
         snackBar.setAction("Undo"){
             mToDoViewModel.insertData(deletedItem)
-            adapter.notifyItemChanged(position)
         }
         snackBar.show()
     }
