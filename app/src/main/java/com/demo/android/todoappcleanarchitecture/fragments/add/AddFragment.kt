@@ -1,14 +1,12 @@
 package com.demo.android.todoappcleanarchitecture.fragments.add
 
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.demo.android.todoappcleanarchitecture.R
-import com.demo.android.todoappcleanarchitecture.data.models.Priority
 import com.demo.android.todoappcleanarchitecture.data.models.ToDoData
 import com.demo.android.todoappcleanarchitecture.data.viewmodel.ToDoViewModel
 import com.demo.android.todoappcleanarchitecture.fragments.SharedViewModel

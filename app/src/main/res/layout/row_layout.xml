@@ -32,13 +32,12 @@
                 android:layout_height="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:parsePriorityColor="@{toDoData.priority}"
+                app:cardCornerRadius="8dp"
                 app:cardBackgroundColor="@color/red"
-                app:cardCornerRadius="100dp"
+                android:parsePriorityColor="@{toDoData.priority}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"/>
 
-            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/title_txt"

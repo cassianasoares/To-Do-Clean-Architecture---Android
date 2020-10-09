@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.Spinner
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
@@ -12,7 +13,6 @@ import com.demo.android.todoappcleanarchitecture.data.models.Priority
 import com.demo.android.todoappcleanarchitecture.data.models.ToDoData
 import com.demo.android.todoappcleanarchitecture.fragments.list.ListFragmentDirections
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import kotlinx.android.synthetic.main.row_layout.view.*
 
 class BindingAdapters {
 
@@ -51,9 +51,9 @@ class BindingAdapters {
         @JvmStatic
         fun parsePriorityColor(cardView: CardView, priority: Priority){
             when(priority){
-                    Priority.HIGH -> {cardView.setCardBackgroundColor(cardView.context.getColor(R.color.red))}
-                    Priority.MEDIUM -> {cardView.setCardBackgroundColor(cardView.context.getColor(R.color.yellow))}
-                    Priority.LOW -> {cardView.setCardBackgroundColor(cardView.context.getColor(R.color.green))}
+                    Priority.HIGH -> {cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.red))}
+                    Priority.MEDIUM -> {cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.yellow))}
+                    Priority.LOW -> {cardView.setCardBackgroundColor(ContextCompat.getColor(cardView.context, R.color.green))}
             }
         }
 
