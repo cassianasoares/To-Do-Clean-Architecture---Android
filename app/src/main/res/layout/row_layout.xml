@@ -18,7 +18,7 @@
             android:id="@+id/row_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/item_background"
+            style="@style/ItemBackground"
             android:sendDataToUpdateFragment="@{toDoData}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
