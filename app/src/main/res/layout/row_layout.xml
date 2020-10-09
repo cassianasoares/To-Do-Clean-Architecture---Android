@@ -32,7 +32,7 @@
                 android:layout_height="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                app:cardCornerRadius="8dp"
+                app:cardCornerRadius="10dp"
                 app:cardBackgroundColor="@color/red"
                 android:parsePriorityColor="@{toDoData.priority}"
                 app:layout_constraintEnd_toEndOf="parent"

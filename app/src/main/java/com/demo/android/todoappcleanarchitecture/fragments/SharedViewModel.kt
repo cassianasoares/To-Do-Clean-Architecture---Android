@@ -1,15 +1,19 @@
 package com.demo.android.todoappcleanarchitecture.fragments
 
 import android.app.Application
+import android.content.SharedPreferences
 import android.view.View
 import android.widget.AdapterView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.demo.android.todoappcleanarchitecture.R
 import com.demo.android.todoappcleanarchitecture.data.models.Priority
 import com.demo.android.todoappcleanarchitecture.data.models.ToDoData
+import com.demo.android.todoappcleanarchitecture.fragments.settings.Constants
+import com.demo.android.todoappcleanarchitecture.fragments.settings.Mode
 
 class SharedViewModel(application: Application): AndroidViewModel(application) {
 

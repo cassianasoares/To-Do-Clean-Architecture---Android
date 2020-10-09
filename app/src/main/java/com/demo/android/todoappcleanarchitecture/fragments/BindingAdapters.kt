@@ -1,18 +1,25 @@
 package com.demo.android.todoappcleanarchitecture.fragments
 
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Spinner
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.demo.android.todoappcleanarchitecture.R
 import com.demo.android.todoappcleanarchitecture.data.models.Priority
 import com.demo.android.todoappcleanarchitecture.data.models.ToDoData
 import com.demo.android.todoappcleanarchitecture.fragments.list.ListFragmentDirections
+import com.demo.android.todoappcleanarchitecture.fragments.settings.Mode
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 class BindingAdapters {
 
@@ -27,6 +34,17 @@ class BindingAdapters {
                 }
             }
         }
+//
+//        @BindingAdapter("android:parseModeToInt")
+//        @JvmStatic
+//        fun parseModeToInt(view: RadioGroup, mode: Mode){
+//            return when(mode){
+//                Mode.LIGHT -> view.check(R.id.light)
+//                Mode.DARK -> view.check(R.id.dark)
+//                Mode.SYSTEM -> view.check(R.id.system)
+//                else -> view.check(R.id.system)
+//            }
+//        }
 
         @BindingAdapter("android:emptyDatabase")
         @JvmStatic

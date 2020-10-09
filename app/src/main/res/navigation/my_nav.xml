@@ -24,6 +24,9 @@
             app:exitAnim="@anim/to_right"
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_listFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -54,4 +57,8 @@
             android:name="currentItem"
             app:argType="com.demo.android.todoappcleanarchitecture.data.models.ToDoData" />
     </fragment>
+    <dialog
+        android:id="@+id/settingsFragment"
+        android:name="com.demo.android.todoappcleanarchitecture.fragments.settings.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

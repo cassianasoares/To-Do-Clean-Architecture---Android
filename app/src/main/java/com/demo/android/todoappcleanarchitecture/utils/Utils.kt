@@ -3,6 +3,9 @@ package com.demo.android.todoappcleanarchitecture.utils
 import android.app.Activity
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatDelegate
+import com.demo.android.todoappcleanarchitecture.fragments.settings.Constants
+import com.demo.android.todoappcleanarchitecture.fragments.settings.Mode
 
 
 fun hideKeyboard(activity: Activity){
